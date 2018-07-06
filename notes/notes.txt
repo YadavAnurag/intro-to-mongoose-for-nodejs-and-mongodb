@@ -19,3 +19,26 @@ Database-as-a-service free Mongodb provider
 #Server restart tool
 1. nodemon
 2. forever
+
+
+
+#Mongoose Schema Types (Allowed data types)
+1. String
+2. Number
+3. Date
+4. Buffer
+5. Boolean
+6. Mixed (js Object)
+7. ObjectId (js Object)
+8. Array (js Array Object)
+
+
+
+#Comparision query operator
+1. $gt greater than
+2. $gte greater than or equal to
+3. $in exists in
+4. $lt less than
+5. $lte less than or equal to
+6. $ne not equal to
+7. $nin does not exist

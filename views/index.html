@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+<body>
+
+  <h1>Virutal standup meeting notes</h1>
+  <a href="/">Home Page</a>
+  <a href="/newnote">New Note</a>
+  <a href="/discuss">Discuss</a>
+
+
+  <div>
+    <form action="/" method="post">
+      <input type="text" name="memberName" id="">
+      <input type="submit" value="Filter Note">
+    </form>
+  </div>
+  <div class="container">
+    {% for note in notes %}
+      <div>
+        Note From <strong>{{ note.memberName }}</strong>
+        Note Date <strong>{{note.createdOn}}</strong>
+        For project <strong>{{note.project}}</strong>
+        Work Yesterday <strong>{{note.workYesterday}}</strong>
+        work Today <strong>{{note.workToday}}</strong>
+        Any implementation <strong>{{note.implement}}</strong>
+      </div>
+    {% endfor %}
+  </div>
+</body>
 </html>

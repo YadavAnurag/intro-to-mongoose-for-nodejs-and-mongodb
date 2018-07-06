@@ -4,9 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var swig = require('swig');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+//mongoose ODM
+mongoose.connect('mongodb://localhost:27017/standup', {useNewUrlParser: true});
 
 var app = express();
 
