@@ -15,6 +15,11 @@
   <a href="/discuss">Discuss</a>
 
   <div>
+      {% if message.length>0 %}
+        <div>{{message}}</div>
+      {% endif %}
+    </div>
+  <div>
     <form action="/newnote" method="post">
       <input type="text" name="memberName" placeholder="memberName">
       <input type="text" name="project" id="" placeholder="project">

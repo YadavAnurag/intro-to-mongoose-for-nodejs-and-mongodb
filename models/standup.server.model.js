@@ -2,12 +2,50 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
+var memberNameValidator = [
+  function(val){
+    return (val.length>0 && val.toLocaleLowercase()!= 'none')
+  },
+  //Custom error text
+  'Select a valid member name.'
+];
+
+var requiredStringValidator = [
+  function(val){
+    var testVal = val.trim();
+    return (testVal.length>0)
+  },
+  //Custom error text
+  '{PATH} can not  be empty.'
+];
+
+
 var standupSchema = new Schema({
-  memberName: String,
-  project: String,
-  workYesterday: String,
-  workToday: String,
-  implement: String,
+  memberName: {
+    type: String,
+    required: true,
+    validate: memberNameValidator
+  },
+  project: {
+    type: String,
+    required: true,
+    validate: requiredStringValidator
+  },
+  workYesterday: {
+    type: String,
+    required: true,
+    validate: requiredStringValidator
+  },
+  workToday: {
+    type: String,
+    required: true,
+    validate: requiredStringValidator
+  },
+  implement: {
+    type: String,
+    required: true,
+    validate: requiredStringValidator
+  },
   createdOn: {type: Date, default: Date.now}
 });
 

@@ -36,12 +36,15 @@ exports.create = function(req, res){
   });
 
   entry.save(function(err){
-    // res.send('Unable to process form submission');
-    return console.log(err);
+    if(err){
+      var errMsg = 'Sorry, there is an error while saving new note'+err;
+      res.render('newnote', {title: 'Standup -- List', message: errMsg});
+    }else{
+      console.log('Standup Meeting note has been saved, redirecting to home page.....');
+      res.redirect(301, '/');
+    }
   });
 
-  //redirect to home page
-  res.redirect(301, '/');
 };
 
 exports.getNote = function(req, res){
